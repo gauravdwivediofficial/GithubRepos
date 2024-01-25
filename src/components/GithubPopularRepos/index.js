@@ -35,7 +35,7 @@ class GithubPopularRepos extends Component {
     this.setState({
       apiStatus: apiStatusConstants.inProgress,
     })
-    const apiUrl = `https//apis.ccbp.in/popular-repos?language=${activeLanguageFilterId}`
+    const apiUrl = `https://apis.ccbp.in/popular-repos?language=${activeLanguageFilterId}`
     const response = await fetch(apiUrl)
     if (response.ok) {
       const fetchedData = await response.json()
@@ -99,7 +99,7 @@ class GithubPopularRepos extends Component {
       case apiStatusConstants.failure:
         return this.renderFailureView()
       case apiStatusConstants.inProgress:
-        return apiStatusConstants.renderLoaderView()
+        return this.renderLoaderView()
       default:
         return null
     }
