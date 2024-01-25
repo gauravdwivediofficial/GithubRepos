@@ -1,4 +1,3 @@
-// Write your code here
 import './index.css'
 
 const LanguageFilterItem = props => {
@@ -14,9 +13,9 @@ const LanguageFilterItem = props => {
   return (
     <li>
       <button
-        type="button"
         className={btnClassName}
         onClick={onClickLanguageFilter}
+        type="button"
       >
         {language}
       </button>

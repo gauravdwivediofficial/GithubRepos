@@ -1,7 +1,9 @@
 import {Component} from 'react'
 import Loader from 'react-loader-spinner'
+
 import LanguageFilterItem from '../LanguageFilterItem'
 import RepositoryItem from '../RepositoryItem'
+
 import './index.css'
 
 const apiStatusConstants = {
@@ -58,9 +60,9 @@ class GithubPopularRepos extends Component {
     }
   }
 
-  renderLoaderView = () => (
+  renderLoadingView = () => (
     <div data-testid="loader">
-      <Loader color="#0284c7" width={80} height={80} type="ThreeDots" />
+      <Loader color="#0284c7" height={80} type="ThreeDots" width={80} />
     </div>
   )
 
@@ -99,7 +101,7 @@ class GithubPopularRepos extends Component {
       case apiStatusConstants.failure:
         return this.renderFailureView()
       case apiStatusConstants.inProgress:
-        return this.renderLoaderView()
+        return this.renderLoadingView()
       default:
         return null
     }
@@ -109,7 +111,7 @@ class GithubPopularRepos extends Component {
     this.setState({activeLanguageFilterId: newFilterId}, this.getRepositories)
   }
 
-  renderLanguageFilterList = () => {
+  renderLanguageFiltersList = () => {
     const {activeLanguageFilterId} = this.state
 
     return (
@@ -131,7 +133,7 @@ class GithubPopularRepos extends Component {
       <div className="app-container">
         <div className="responsive-container">
           <h1 className="heading">Popular</h1>
-          {this.renderLanguageFilterList()}
+          {this.renderLanguageFiltersList()}
           {this.renderRepositories()}
         </div>
       </div>
